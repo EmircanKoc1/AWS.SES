@@ -69,6 +69,20 @@ app.MapPost("/send-mail", async (
     return Results.Ok(sendEmailResponse);
 });
 
+app.MapGet("get-account-details", async (
+     [FromServices] IAmazonSimpleEmailServiceV2 _amazonSimpleEmailService) =>
+{
+
+    var getAccountRequest = new GetAccountRequest()
+    {
+    };
+
+    var getAccountResponse = await _amazonSimpleEmailService.GetAccountAsync(getAccountRequest);
+
+
+    return Results.Ok(getAccountResponse);
+});
+
 
 app.Run();
 
