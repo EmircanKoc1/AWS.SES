@@ -1,0 +1,6 @@
+@AWS.SES_HostAddress = http://localhost:5260
+
+GET {{AWS.SES_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
